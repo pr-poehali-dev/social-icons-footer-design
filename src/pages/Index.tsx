@@ -277,26 +277,7 @@ const Index = () => {
               </p>
             </div>
 
-            <Card className="p-8 md:p-10 bg-gradient-to-br from-primary/5 to-accent/5 border-2">
-              <div className="space-y-6">
-                <h3 className="text-xl md:text-2xl font-bold text-center">Вариативность источников данных</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {dataSources.map((source, index) => (
-                    <div 
-                      key={index} 
-                      className="flex flex-col items-center gap-3 p-4 rounded-xl bg-background/60 hover:bg-primary/10 transition-all hover:scale-105 border"
-                    >
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Icon name={source.icon} className="text-primary" size={24} />
-                      </div>
-                      <p className="text-sm text-center font-medium leading-tight">{source.name}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Card>
-
-            <div className="space-y-8 pt-8">
+            <div className="space-y-8">
               <div className="space-y-4">
                 <h3 className="text-2xl md:text-3xl font-bold">Преимущества платформы</h3>
                 <p className="text-lg text-muted-foreground">
@@ -315,6 +296,29 @@ const Index = () => {
                     </div>
                     <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                     <p className="text-muted-foreground">{feature.description}</p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-8 pt-8">
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-bold">Вариативность источников данных</h3>
+                <p className="text-lg text-muted-foreground">
+                  Подключайте любые источники данных без ограничений
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {dataSources.map((source, index) => (
+                  <Card 
+                    key={index} 
+                    className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 group bg-background"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <Icon name={source.icon} className="text-primary" size={28} />
+                    </div>
+                    <p className="text-base font-bold text-center leading-tight">{source.name}</p>
                   </Card>
                 ))}
               </div>
