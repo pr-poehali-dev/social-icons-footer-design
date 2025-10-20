@@ -91,27 +91,31 @@ const Index = () => {
 
       <section className="py-20 md:py-32">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                AI, IoT, Vision<br />
-                <span className="text-primary">+ всё в одной платформе</span>
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Объединяем искусственный интеллект, интернет вещей и машинное зрение 
-                в единой экосистеме для решения бизнес-задач любой сложности
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="text-base">
-                  Начать работу
-                  <Icon name="ArrowRight" className="ml-2" size={20} />
-                </Button>
-                <Button size="lg" variant="outline" className="text-base">
-                  Узнать больше
-                </Button>
-              </div>
+          <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              AI, IoT, Vision<br />
+              <span className="text-primary">+ всё в одной платформе</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Объединяем искусственный интеллект, интернет вещей и машинное зрение 
+              в единой экосистеме для решения бизнес-задач любой сложности
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center pt-4">
+              <Button size="lg" className="text-base">
+                Начать работу
+                <Icon name="ArrowRight" className="ml-2" size={20} />
+              </Button>
+              <Button size="lg" variant="outline" className="text-base">
+                Узнать больше
+              </Button>
             </div>
-            
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
             <div className="relative animate-fade-in-up">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl rounded-full" />
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-secondary/20 aspect-video flex items-center justify-center">
