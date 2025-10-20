@@ -1,10 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [language, setLanguage] = useState<'ru' | 'en'>('ru');
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' || 'light';
+    setTheme(savedTheme);
+    document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'ru' ? 'en' : 'ru');
+  };
   const dataSources = [
     { name: "IP камера", icon: "Video" },
     { name: "IoT устройства и датчики", icon: "Radio" },
@@ -83,14 +102,39 @@ const Index = () => {
               <a href="#contacts" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
             </div>
 
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="relative z-50"
-            >
-              <Icon name={isMenuOpen ? "X" : "Menu"} size={24} />
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button 
+                variant="ghost" 
+                size="icon"
+                onClick={toggleLanguage}
+                className="hidden md:flex"
+              >
+                <span className="text-sm font-medium">{language.toUpperCase()}</span>
+              </Button>
+
+              <Button 
+                variant="ghost" 
+                size="icon"
+                onClick={toggleTheme}
+                className="hidden md:flex"
+              >
+                <Icon name={theme === 'light' ? 'Moon' : 'Sun'} size={20} />
+              </Button>
+
+              <Button className="hidden md:flex">
+                Связаться
+                <Icon name="ArrowRight" className="ml-2" size={16} />
+              </Button>
+
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden relative z-50"
+              >
+                <Icon name={isMenuOpen ? "X" : "Menu"} size={24} />
+              </Button>
+            </div>
           </nav>
         </div>
 
