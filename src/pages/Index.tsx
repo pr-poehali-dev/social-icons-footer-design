@@ -125,20 +125,20 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-card">
+      <section id="platform" className="py-16 pb-20">
         <div className="container mx-auto px-4">
-          <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/5 to-accent/5 border-2">
-            <div className="max-w-4xl mx-auto space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl md:text-4xl font-bold">Узнайте больше о нашей платформе</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  <span className="font-semibold text-foreground">OSMOCV</span> — это комплексная и открытая платформа для быстрого создания приложений 
-                  в области искусственного интеллекта, компьютерного зрения и Интернета вещей.
-                </p>
-              </div>
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div className="space-y-4 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold">Узнайте больше о нашей платформе</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                <span className="font-semibold text-foreground">OSMOCV</span> — это комплексная и открытая платформа для быстрого создания приложений 
+                в области искусственного интеллекта, компьютерного зрения и Интернета вещей.
+              </p>
+            </div>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold">Вариативность источников данных</h3>
+            <Card className="p-8 md:p-10 bg-gradient-to-br from-primary/5 to-accent/5 border-2">
+              <div className="space-y-6">
+                <h3 className="text-xl md:text-2xl font-bold text-center">Вариативность источников данных</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {dataSources.map((source, index) => (
                     <div 
@@ -153,34 +153,31 @@ const Index = () => {
                   ))}
                 </div>
               </div>
+            </Card>
+
+            <div className="space-y-8 pt-8">
+              <div className="text-center">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Преимущества платформы</h3>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Мощные инструменты для создания интеллектуальных решений
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {features.map((feature, index) => (
+                  <Card 
+                    key={index} 
+                    className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 group"
+                  >
+                    <div className={`${feature.color} w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <Icon name={feature.icon} className="text-white" size={28} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </Card>
+                ))}
+              </div>
             </div>
-          </Card>
-        </div>
-      </section>
-
-      <section id="platform" className="py-20 bg-secondary/5">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Преимущества платформы</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Мощные инструменты для создания интеллектуальных решений
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
-              <Card 
-                key={index} 
-                className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 group animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className={`${feature.color} w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <Icon name={feature.icon} className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
