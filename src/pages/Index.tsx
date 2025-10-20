@@ -274,13 +274,19 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                 <div className="relative backdrop-blur-xl bg-background/30 border border-white/20 aspect-video flex items-center justify-center">
                   <div className="text-center space-y-6 p-8">
-                    <div className="relative">
+                    <div className="space-y-4 max-w-2xl mx-auto">
+                      <h2 className="text-2xl md:text-3xl font-bold">Узнайте больше о нашей платформе</h2>
+                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                        <span className="font-semibold text-foreground">OSMOCV</span> — это комплексная и открытая платформа для быстрого создания приложений 
+                        в области искусственного интеллекта, компьютерного зрения и Интернета вещей.
+                      </p>
+                    </div>
+                    <div className="relative pt-4">
                       <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
-                      <div className="relative backdrop-blur-sm bg-background/40 border border-primary/30 rounded-full w-24 h-24 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Icon name="Play" className="text-primary ml-1" size={40} />
+                      <div className="relative backdrop-blur-sm bg-background/40 border border-primary/30 rounded-full w-20 h-20 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Icon name="Play" className="text-primary ml-1" size={32} />
                       </div>
                     </div>
-                    <p className="text-sm font-medium text-muted-foreground backdrop-blur-sm bg-background/50 px-4 py-2 rounded-full inline-block border border-white/10">Демо-видео платформы</p>
                   </div>
                 </div>
               </div>
