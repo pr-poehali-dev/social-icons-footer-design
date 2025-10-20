@@ -89,23 +89,35 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="py-20 md:py-32">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-transparent" />
+        <div className="absolute top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+            <div className="inline-block">
+              <div className="backdrop-blur-sm bg-primary/5 border border-primary/20 rounded-full px-6 py-2 mb-6">
+                <p className="text-sm font-medium text-primary">Единая платформа для AI решений</p>
+              </div>
+            </div>
+            
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               AI, IoT, Vision<br />
-              <span className="text-primary">+ всё в одной платформе</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">+ всё в одной платформе</span>
             </h1>
+            
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Объединяем искусственный интеллект, интернет вещей и машинное зрение 
               в единой экосистеме для решения бизнес-задач любой сложности
             </p>
+            
             <div className="flex flex-wrap gap-4 justify-center pt-4">
-              <Button size="lg" className="text-base">
+              <Button size="lg" className="text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
                 Начать работу
                 <Icon name="ArrowRight" className="ml-2" size={20} />
               </Button>
-              <Button size="lg" variant="outline" className="text-base">
+              <Button size="lg" variant="outline" className="text-base backdrop-blur-sm bg-background/50 hover:bg-background/80 border-primary/20">
                 Узнать больше
               </Button>
             </div>
@@ -113,15 +125,26 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="relative animate-fade-in-up">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl rounded-full" />
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-secondary/20 aspect-video flex items-center justify-center">
-                <div className="text-center space-y-4 p-8">
-                  <Icon name="Play" className="mx-auto text-primary" size={64} />
-                  <p className="text-sm text-muted-foreground">Демо-видео платформы</p>
+            <div className="relative animate-fade-in-up group cursor-pointer">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 blur-3xl opacity-75 group-hover:opacity-100 transition-opacity" />
+              
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
+                <div className="relative backdrop-blur-xl bg-background/30 border border-white/20 aspect-video flex items-center justify-center">
+                  <div className="text-center space-y-6 p-8">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
+                      <div className="relative backdrop-blur-sm bg-background/40 border border-primary/30 rounded-full w-24 h-24 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Icon name="Play" className="text-primary ml-1" size={40} />
+                      </div>
+                    </div>
+                    <p className="text-sm font-medium text-muted-foreground backdrop-blur-sm bg-background/50 px-4 py-2 rounded-full inline-block border border-white/10">Демо-видео платформы</p>
+                  </div>
                 </div>
               </div>
             </div>
