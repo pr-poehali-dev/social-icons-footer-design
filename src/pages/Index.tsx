@@ -212,25 +212,14 @@ const Index = () => {
       </header>
 
       <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-transparent" />
         <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: 'linear-gradient(135deg, rgba(0, 224, 255, 0.12) 0%, rgba(22, 102, 227, 0.12) 50%, rgba(142, 20, 218, 0.12) 100%)' 
-          }}
+          className="absolute top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl" 
+          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
         />
         <div 
-          className="absolute top-20 -right-20 w-96 h-96 rounded-full blur-3xl" 
-          style={{ 
-            transform: `translateY(${scrollY * 0.3}px)`,
-            background: 'rgba(0, 224, 255, 0.12)'
-          }}
-        />
-        <div 
-          className="absolute bottom-20 -left-20 w-96 h-96 rounded-full blur-3xl"
-          style={{ 
-            transform: `translateY(${scrollY * -0.2}px)`,
-            background: 'rgba(142, 20, 218, 0.12)'
-          }}
+          className="absolute bottom-20 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+          style={{ transform: `translateY(${scrollY * -0.2}px)` }}
         />
         
         <div className="container mx-auto px-4 relative z-10">
