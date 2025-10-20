@@ -3,6 +3,16 @@ import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
+  const dataSources = [
+    { name: "IP камера", icon: "Video" },
+    { name: "IoT устройства и датчики", icon: "Radio" },
+    { name: "Звук", icon: "Mic" },
+    { name: "Мессенджеры", icon: "MessageSquare" },
+    { name: "Промышленная высокочастотная камера", icon: "Camera" },
+    { name: "Текстовые и PDF файлы", icon: "FileText" },
+    { name: "Изображения и видео", icon: "Image" }
+  ];
+
   const features = [
     {
       title: "AI, IoT, Vision",
@@ -104,13 +114,47 @@ const Index = () => {
             
             <div className="relative animate-fade-in-up">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl rounded-full" />
-              <img 
-                src="https://cdn.poehali.dev/files/750d24cf-5414-46d9-96e4-e1eb6cd650d7.jpg" 
-                alt="3D Character" 
-                className="relative z-10 w-full h-auto rounded-2xl shadow-2xl animate-float"
-              />
+              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-secondary/20 aspect-video flex items-center justify-center">
+                <div className="text-center space-y-4 p-8">
+                  <Icon name="Play" className="mx-auto text-primary" size={64} />
+                  <p className="text-sm text-muted-foreground">Демо-видео платформы</p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-card">
+        <div className="container mx-auto px-4">
+          <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/5 to-accent/5 border-2">
+            <div className="max-w-4xl mx-auto space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold">Узнайте больше о нашей платформе</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  <span className="font-semibold text-foreground">OSMOCV</span> — это комплексная и открытая платформа для быстрого создания приложений 
+                  в области искусственного интеллекта, компьютерного зрения и Интернета вещей.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold">Вариативность источников данных</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {dataSources.map((source, index) => (
+                    <div 
+                      key={index} 
+                      className="flex flex-col items-center gap-3 p-4 rounded-xl bg-background/60 hover:bg-primary/10 transition-all hover:scale-105 border"
+                    >
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Icon name={source.icon} className="text-primary" size={24} />
+                      </div>
+                      <p className="text-sm text-center font-medium leading-tight">{source.name}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
