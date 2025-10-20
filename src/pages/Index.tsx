@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dataSources = [
     { name: "IP камера", icon: "Video" },
     { name: "IoT устройства и датчики", icon: "Radio" },
@@ -81,12 +83,80 @@ const Index = () => {
               <a href="#contacts" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
             </div>
 
-            <Button className="hidden md:flex">Войти</Button>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Icon name="Menu" size={24} />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="relative z-50"
+            >
+              <Icon name={isMenuOpen ? "X" : "Menu"} size={24} />
             </Button>
           </nav>
         </div>
+
+        {isMenuOpen && (
+          <div className="fixed inset-0 z-40 md:hidden">
+            <div 
+              className="absolute inset-0 bg-background/80 backdrop-blur-md" 
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <div className="absolute top-20 left-0 right-0 mx-4">
+              <div className="backdrop-blur-xl bg-background/95 border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+                <nav className="flex flex-col p-2">
+                  <a 
+                    href="#platform" 
+                    className="px-6 py-4 text-base font-medium hover:bg-primary/10 hover:text-primary transition-colors rounded-xl"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Платформа
+                  </a>
+                  <a 
+                    href="#solutions" 
+                    className="px-6 py-4 text-base font-medium hover:bg-primary/10 hover:text-primary transition-colors rounded-xl"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Решения
+                  </a>
+                  <a 
+                    href="#news" 
+                    className="px-6 py-4 text-base font-medium hover:bg-primary/10 hover:text-primary transition-colors rounded-xl"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Новости
+                  </a>
+                  <a 
+                    href="#portfolio" 
+                    className="px-6 py-4 text-base font-medium hover:bg-primary/10 hover:text-primary transition-colors rounded-xl"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Портфолио
+                  </a>
+                  <a 
+                    href="#about" 
+                    className="px-6 py-4 text-base font-medium hover:bg-primary/10 hover:text-primary transition-colors rounded-xl"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    О компании
+                  </a>
+                  <a 
+                    href="#contacts" 
+                    className="px-6 py-4 text-base font-medium hover:bg-primary/10 hover:text-primary transition-colors rounded-xl"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Контакты
+                  </a>
+                  <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-2" />
+                  <Button 
+                    className="m-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Войти
+                  </Button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       <section className="relative py-20 md:py-32 overflow-hidden">
