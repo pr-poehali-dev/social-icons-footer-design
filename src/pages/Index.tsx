@@ -7,11 +7,19 @@ const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [language, setLanguage] = useState<'ru' | 'en'>('ru');
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' || 'light';
     setTheme(savedTheme);
     document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -205,11 +213,20 @@ const Index = () => {
 
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-transparent" />
-        <div className="absolute top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+        <div 
+          className="absolute top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl" 
+          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+        />
+        <div 
+          className="absolute bottom-20 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+          style={{ transform: `translateY(${scrollY * -0.2}px)` }}
+        />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+          <div 
+            className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in"
+            style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+          >
             <div className="inline-block">
               <div className="backdrop-blur-sm bg-primary/5 border border-primary/20 rounded-full px-6 py-2 mb-6">
                 <p className="text-sm font-medium text-primary">Единая платформа для AI решений</p>
