@@ -156,9 +156,9 @@ const Index = () => {
             </Card>
 
             <div className="space-y-8 pt-8">
-              <div className="text-center">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">Преимущества платформы</h3>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-bold">Преимущества платформы</h3>
+                <p className="text-lg text-muted-foreground">
                   Мощные инструменты для создания интеллектуальных решений
                 </p>
               </div>
@@ -167,7 +167,7 @@ const Index = () => {
                 {features.map((feature, index) => (
                   <Card 
                     key={index} 
-                    className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 group"
+                    className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 group bg-background"
                   >
                     <div className={`${feature.color} w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                       <Icon name={feature.icon} className="text-white" size={28} />
