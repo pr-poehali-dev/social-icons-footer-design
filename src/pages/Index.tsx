@@ -299,10 +299,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="space-y-4 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold">Узнайте больше о нашей платформе</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">Возможности платформы</h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                <span className="font-semibold text-foreground">OSMOCV</span> — это комплексная и открытая платформа для быстрого создания приложений 
-                в области искусственного интеллекта, компьютерного зрения и Интернета вещей.
+                Всё необходимое для создания интеллектуальных решений в одном месте
               </p>
             </div>
 
